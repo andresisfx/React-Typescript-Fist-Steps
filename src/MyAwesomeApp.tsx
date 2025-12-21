@@ -21,7 +21,7 @@ const myStyles: CSSProperties = {
 export const MyAwesomeApp = () => {
   return (
     <>
-      <h1> {firstName} </h1>
+      <h1 data-testid="firstName" > {firstName} </h1>
       <h3> {lastName} </h3>
 
       <p>{favoriteGames.join(', ')}</p>

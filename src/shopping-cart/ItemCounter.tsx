@@ -12,6 +12,7 @@ export const ItemCounter = ({ name, quantity = 1 }: Props) => {
   const [count, setCount] = useState(quantity);
 
   const handleAdd = () => {
+    console.log("hola mundo desde itemcounter")
     setCount(count + 1);
   };
 
