@@ -44,8 +44,10 @@ describe('ItemCounter', () => {
     })
 
     test('should not decrease  when quantity less than 1',()=>{
-        render(<ItemCounter name= "Test item" quantity={5}/>);
+        render(<ItemCounter name= "Test item" quantity={1}/>);
         const [,buttondecrease] = screen.getAllByRole('button');
+
+        fireEvent.click(buttondecrease)
 
         expect(screen.getAllByText("1")).toBeDefined();
     })
@@ -59,5 +61,16 @@ describe('ItemCounter', () => {
 
         expect(itemText.style.color).toBe('red')
         
+    })
+
+    test('shoould change to black when quantity greater than 1',()=>{
+
+        const quantity = 3
+        const name = "Test item"
+        render(<ItemCounter name= "Test item" quantity={quantity}/>);
+
+        const itemText = screen.getByText(name)
+
+        expect(itemText.style.color).toBe('black')
     })
 })
